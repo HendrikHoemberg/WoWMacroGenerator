@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +12,19 @@
           hx-swap="outerHTML">
         <input type="text" name="spellName" placeholder="Spell Name..." required>
         <select name="macroType">
-            <option th:each="type: ${types}"
+            <option th:each="type: ${macroTypes}"
                     th:value="${type}"
                     th:text="${type}">
             </option>
         </select>
+        <button type="submit">Create Macro</button>
     </form>
+
+    <div id="macro-list" th:fragment="macro-list">
+        <ul>
+            <li th:each="macro: ${macros}">
+                <code th:text="${macro.command}"></code>
+            </li>
+        </ul>
 </body>
 </html>

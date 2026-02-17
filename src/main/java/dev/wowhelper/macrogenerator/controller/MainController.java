@@ -23,7 +23,7 @@ public class MainController {
     @GetMapping("/")
     public String showMainPage(Model model) {
         model.addAttribute("macros", macroGeneratorService.getAllMacros());
-        model.addAttribute("macro-types", MacroType.values());
+        model.addAttribute("macroTypes", MacroType.values());
         return "index";
     }
     
