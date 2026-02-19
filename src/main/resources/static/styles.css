@@ -1,5 +1,11 @@
 body {
     font-family: Arial, sans-serif;
+    background: #020024;
+background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(135, 135, 135, 1) 100%, rgba(255, 255, 255, 1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
 }
 
 .container {
@@ -9,10 +15,10 @@ body {
     justify-content: center;
     max-width: 60%;
     margin: 2px auto;
-    border: 1px solid rgb(119, 119, 119);
+    border: 1px solid rgb(232, 232, 232);
     border-radius: 8px;
     padding: 5px;
-    background-color: rgba(221, 221, 221, 0.561);
+    background-color: rgb(221, 221, 221);
 }
 
 #macro-list {
