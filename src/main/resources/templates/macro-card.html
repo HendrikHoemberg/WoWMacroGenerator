@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macro Card</title>
-    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-    <div class="macro-card" th:fragment="macro-card(macro)">
-        <div class="code-block">
-            <code th:text="${macro.command}"></code>
-        </div>
-        <button th:hx-delete="@{/deleteMacro(id=${macro.id})}"
-                hx-target="closest .macro-card"
-                hx-swap="outerHTML swap:0.5s" 
-                class="delete-button">Delete</button>
+<div class="macro-card" xmlns:th="http://www.thymeleaf.org" th:fragment="macro-card(macro)">
+    <div class="code-block">
+        <code th:text="${macro.command}"></code>
     </div>
-</body>
-</html>
+    <button th:hx-delete="@{/deleteMacro(id=${macro.id})}"
+            hx-target="closest .macro-card"
+            hx-swap="outerHTML swap:0.5s" 
+            class="delete-button">Delete</button>
+</div>
