@@ -37,15 +37,9 @@ public class MacroGeneratorService {
         String macroCommand = "/cast ";
 
         switch(macroType) {
-            case FOCUS:
-                macroCommand += "[@Focus] ";
-                break;
-            case PLAYER:
-                macroCommand += "[@Player] ";
-                break;
-            case CURSOR:
-                macroCommand += "[@Cursor] ";
-                break;
+            case FOCUS -> macroCommand += "[@Focus] ";
+            case PLAYER -> macroCommand += "[@Player] ";
+            case CURSOR -> macroCommand += "[@Cursor] ";
         }
 
         macroCommand += spellName;
