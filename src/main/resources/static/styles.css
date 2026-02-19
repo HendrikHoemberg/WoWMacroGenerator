@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 60%;
+    margin: 2px auto;
+    border: 1px solid rgb(119, 119, 119);
+    border-radius: 8px;
+    padding: 5px;
+    background-color: rgba(221, 221, 221, 0.561);
+}
+
+#macro-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.no-macros-message {
+    margin: 20px 20px;
+}
+
+.macro-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width:80%;
+    padding: 10px;
+}
+.macro-card.htmx-swapping {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.code-block {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(119, 119, 119);
+    border-radius: 4px;
+    font-family: monospace;
+    padding: 10px;
+    width: 60%;
+    word-break: break-word;
+}
+
+.delete-button {
+    background-color: rgb(233, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.delete-button:hover {
+    background-color: rgb(197, 0, 0);
+}
+
+

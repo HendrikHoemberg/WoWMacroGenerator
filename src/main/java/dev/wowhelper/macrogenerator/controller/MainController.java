@@ -2,6 +2,7 @@ package dev.wowhelper.macrogenerator.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,5 +35,18 @@ public class MainController {
         
         return "index :: macro-list";
     }
+
+    @DeleteMapping("/deleteMacro")
+    public String deleteMacro(Model model, @RequestParam long id) {
+        macroGeneratorService.deleteMacroById(id);
+        model.addAttribute("macros", macroGeneratorService.getAllMacros());
+
+        if (macroGeneratorService.getAllMacros().isEmpty()) {
+            return "index :: macro-list";
+        }
+        
+        return "empty-fragment";
+    }
     
-}
+} 
+ 

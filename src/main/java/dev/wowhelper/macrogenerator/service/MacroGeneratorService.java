@@ -43,6 +43,9 @@ public class MacroGeneratorService {
             case PLAYER:
                 macroCommand += "[@Player] ";
                 break;
+            case CURSOR:
+                macroCommand += "[@Cursor] ";
+                break;
         }
 
         macroCommand += spellName;

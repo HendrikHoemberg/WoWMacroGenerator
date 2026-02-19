@@ -5,26 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MacroGenerator</title>
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <form hx-post="/createMacro" 
-          hx-target="#macro-list" 
-          hx-swap="outerHTML">
-        <input type="text" name="spellName" placeholder="Spell Name..." required>
-        <select name="macroType">
-            <option th:each="type: ${macroTypes}"
-                    th:value="${type}"
-                    th:text="${type}">
-            </option>
-        </select>
-        <button type="submit">Create Macro</button>
-    </form>
+    <div class="container">
+        <form hx-post="/createMacro" 
+              hx-target="#macro-list" 
+              hx-swap="outerHTML">
+            <input type="text" name="spellName" placeholder="Spell Name..." required>
+            <select name="macroType">
+                <option th:each="type: ${macroTypes}"
+                        th:value="${type}"
+                        th:text="${type.displayName}">
+                </option>
+            </select>
+            <button type="submit">Create Macro</button>
+        </form>
+    </div>
 
-    <div id="macro-list" th:fragment="macro-list">
-        <ul>
-            <li th:each="macro: ${macros}">
-                <code th:text="${macro.command}"></code>
-            </li>
-        </ul>
+    <div id="macro-list" 
+         th:fragment="macro-list" 
+         th:hx-swap-oob="${macros != null && macros.isEmpty() ? 'true' : null}"
+         class="container">
+        <p th:if="${#lists.isEmpty(macros)}" class="no-macros-message">
+            No macros created yet. Use the form above to create your first macro!
+        </p>
+
+        <th:block th:each="macro : ${macros}">
+             <div th:replace="~{macro-card :: macro-card(macro=${macro})}"></div>
+        </th:block>
+    </div>
 </body>
 </html>
