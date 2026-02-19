@@ -12,14 +12,18 @@
         <form hx-post="/createMacro" 
               hx-target="#macro-list" 
               hx-swap="outerHTML">
-            <input type="text" name="spellName" placeholder="Spell Name..." required>
-            <select name="macroType">
+            <input type="text" 
+                   name="spellName"
+                   class="spell-name-input" 
+                   placeholder="Spell Name..." 
+                   required>
+            <select name="macroType" class="macro-type-select">
                 <option th:each="type: ${macroTypes}"
                         th:value="${type}"
                         th:text="${type.displayName}">
                 </option>
             </select>
-            <button type="submit">Create Macro</button>
+            <button type="submit" class="create-macro-button">Create Macro</button>
         </form>
     </div>
 
